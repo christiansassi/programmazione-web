@@ -16,15 +16,22 @@ java -jar %DERBY_HOME%\lib\derbyrun.jar ij
 
 If everything went smootly, you should see something like `ij>` in the console. Next, to create and connect to a new database, type:
 ```bash
-ij> CONNECT 'jdbc:derby:mydb;create=true';
+ij> CONNECT 'jdbc:derby:myDB;create=true';
 ```
-> **Note**: you can replace 'mydb' with the name of your choice. In addition, the `create=true` flag will create the table if it doesn't exist.
+> **Note**: you can replace 'myDB' with the name of your choice. In addition, the `create=true` flag will create the table if it doesn't exist.
 
-### Populate a database (optional)
+### Create a table (optional)
 
-While staying connected to the database (see above), type:
+While staying connected to the database (see [above](#add-a-database-optional)), type:
 ```sql
-ij> INSERT INTO FIRSTTABLE VALUES (10,'TEN'),(20,'TWENTY'),(30,'THIRTY');
+ij> CREATE TABLE myTable (ID INT PRIMARY KEY, NAME VARCHAR(100));
+```
+
+### Populate a table (optional)
+
+While staying connected to the database (see [above](#add-a-database-optional)), type:
+```sql
+ij> INSERT INTO myTable VALUES (10,'TEN'),(20,'TWENTY'),(30,'THIRTY');
 ```
 
 ## Working with the Apache Derby server
@@ -55,3 +62,82 @@ The server will run on port `1527` unless specified otherwise. At the time of wr
 Finally, test the connection:
 1.  Click **Test Connection** to ensure that the connection to the Derby database is successful.
 2.  Click **OK** to finish setting up the Derby database.
+
+## Quick start
+
+Here are some examples on how to use Apache Derby in Java.
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DerbyConnect {
+  public static void main(String[] args) throws SQLException {
+    // specify the location of the database
+    String dbURL = "jdbc:derby:C:/Derby/myDB;create=true";
+
+    // specify the connection properties
+    String username = "";  // default username is an empty string
+    String password = "";  // default password is an empty string
+
+    // connect to the database
+    Connection conn = DriverManager.getConnection(dbURL, username, password);
+    
+    // create a statement
+    Statement stmt = conn.createStatement();
+
+    // execute the query
+    ResultSet rs = stmt.executeQuery("SELECT * FROM myTable");
+
+    // process the result set
+    while (rs.next()) {
+      int id = rs.getInt("ID");
+      String name = rs.getString("NAME");
+      System.out.println("ID: " + id + ", Name: " + name);
+    }
+
+    // close the result set, statement, and connection
+    rs.close();
+    stmt.close();
+    conn.close();
+  }
+}
+```
+In this example, the **SELECT** query is used to retrieve all rows from the myTable table. The `ResultSet` object returned by the executeQuery method is used to process the result set.
+
+To execute an SQL **INSERT**, **UPDATE**, or **DELETE** query, you can use the `Statement.executeUpdate` method, which returns the number of rows affected by the query.
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DerbyConnect {
+  public static void main(String[] args) throws SQLException {
+    // specify the location of the database
+    String dbURL = "jdbc:derby:C:/Derby/myDB;create=true";
+
+    // specify the connection properties
+    String username = "";  // default username is an empty string
+    String password = "";  // default password is an empty string
+
+    // connect to the database
+    Connection conn = DriverManager.getConnection(dbURL, username, password);
+    
+    // create a statement
+    Statement stmt = conn.createStatement();
+    
+    // Execute an INSERT query
+    int count = stmt.executeUpdate("INSERT INTO MYTABLE (ID, NAME) VALUES (40, 'FORTY')");
+
+    // Print the number of rows affected
+    System.out.println(count + " rows affected");
+    
+    stmt.close();
+    conn.close();
+  }
+}
+```
