@@ -47,7 +47,7 @@ And, of course, to stop the server, type:
 java -jar %DERBY_HOME%\lib\derbyrun.jar server shutdown
 ```
 
-The server will run on port `1527` unless specified otherwise. At the time of writing this guide, port 1527 is the default. For more information, you can refer to the documentation [here](https://db.apache.org/derby/quick_start.html)
+The server will run on port `1527` unless specified otherwise. At the time of writing this guide, port 1527 is the default. For more information, you can refer to the documentation [here](https://db.apache.org/derby/quick_start.html).
 
 ## Set up a Derby Database in IntelliJ IDEA
 
@@ -62,6 +62,11 @@ The server will run on port `1527` unless specified otherwise. At the time of wr
 Finally, test the connection:
 1.  Click **Test Connection** to ensure that the connection to the Derby database is successful.
 2.  Click **OK** to finish setting up the Derby database.
+
+## Add Derby JDBC Driver to Apache Tomcat
+
+1. Download **Derby JDBC Driver** [here](https://dbschema.com/jdbc-driver/Derby.html).
+2. Once the downloaded is completed, extract all the files inside the **lib** folder of Apache Tomcat.
 
 ## Quick start
 
