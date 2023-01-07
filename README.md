@@ -18,7 +18,7 @@ If everything went smootly, you should see something like `ij>` in the console. 
 ```bash
 ij> CONNECT 'jdbc:derby:myDB;create=true';
 ```
-> **Note**: you can replace 'myDB' with the name of your choice. In addition, you can specify different flags such as `create=true` that will create the table if it doesn't exist, or `username=user` and `password=1234` to set a username and/or password.
+> **Note**: you can replace 'myDB' with the name of your choice. In addition, you can specify different flags such as `create=true` that will create the table if it doesn't exist, or `user=username` and `password=1234` to set a username and/or password.
 
 ### Create a table (optional)
 
