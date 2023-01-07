@@ -2,9 +2,9 @@
 
 1.  Download and install the latest version of [Apache Derby](https://db.apache.org/). You can find the download link [here](https://db.apache.org/derby/derby_downloads.html).
 2.  Extract the downloaded archive to a location on your computer, for example `C:\Derby`.
-3.  Set the `DERBY_HOME` environment variable to the path of the Derby installation folder. For example, if you extracted the Derby files to `C:\Derby`, set `DERBY_HOME` to `C:\Derby`. To do this, you can open a new terminal window and type:
+3.  Set the `DERBY_HOME` environment variable to the path of the Derby installation folder. For example, if you extracted the Derby files to `C:\Derby`, set `DERBY_HOME` to `C:\Derby`. To do this, you can open a new terminal window as an administrator and type:
 ```bash 
-set DERBY_HOME="your derby path" 
+setx DERBY_HOME "your derby path" 
 ```
 
 ### Add a database (optional)
