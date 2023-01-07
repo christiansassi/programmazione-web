@@ -76,7 +76,7 @@ import java.sql.Statement;
 public class DerbyConnect {
   public static void main(String[] args) throws SQLException {
     // specify the location of the database
-    String dbURL = "jdbc:derby:C:/Derby/myDB;create=true";
+    String dbURL = "jdbc:derby://localhost:1527/myDB";
 
     // specify the connection properties
     String username = "";  // default username is an empty string
@@ -118,7 +118,7 @@ import java.sql.Statement;
 public class DerbyConnect {
   public static void main(String[] args) throws SQLException {
     // specify the location of the database
-    String dbURL = "jdbc:derby:C:/Derby/myDB;create=true";
+    String dbURL = "jdbc:derby://localhost:1527/myDB";
 
     // specify the connection properties
     String username = "";  // default username is an empty string
