@@ -11,7 +11,7 @@ setx DERBY_HOME "your derby path"
 
 You can add a new database by opening a new terminal window and typing:
 ```bash
-java -jar %DERBY_HOME%\lib\derbyrun.jar ij
+java -jar "%DERBY_HOME%\lib\derbyrun.jar" ij
 ```
 
 If everything went smootly, you should see something like `ij>` in the console. Next, to create and connect to a new database, type:
