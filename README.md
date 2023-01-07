@@ -62,7 +62,7 @@ The server will run on port `1527` unless specified otherwise. At the time of wr
 Finally, test the connection:
 1.  Click **Test Connection** to ensure that the connection to the Derby database is successful.
 2.  Click **OK** to finish setting up the Derby database.
-
+> **IMPORTANT NOTE:** If the Test Connection fails, make sure you have closed (or exited through the `exit;` command) all Apache Derby consoles except the one running the server. If you do not, IntelliJ will not be able to connect.
 ## Add Derby JDBC Driver to Apache Tomcat
 
 1. Download **Derby JDBC Driver** [here](https://dbschema.com/jdbc-driver/Derby.html).
