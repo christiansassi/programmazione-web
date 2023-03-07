@@ -1,4 +1,8 @@
-## Installation
+# Introduction
+
+This guide will show you how to setup Apache Derby and use it with Intellij IDEA.
+
+# Installation
 
 1.  Download and install the latest version of [Apache Derby](https://db.apache.org/). You can find the download link [here](https://db.apache.org/derby/derby_downloads.html).
 2.  Extract the downloaded archive to a location on your computer, for example `C:\Derby`.
@@ -34,7 +38,7 @@ While staying connected to the database (see [above](#add-a-database-optional)),
 ij> INSERT INTO myTable VALUES (10,'TEN'),(20,'TWENTY'),(30,'THIRTY');
 ```
 
-## Working with the Apache Derby server
+# Working with the Apache Derby server
 
 You can start Derby server by opening a new terminal window and typing:
 ```bash
@@ -49,7 +53,7 @@ java -jar %DERBY_HOME%\lib\derbyrun.jar server shutdown
 
 The server will run on port `1527` unless specified otherwise. At the time of writing this guide, port 1527 is the default. For more information, you can refer to the documentation [here](https://db.apache.org/derby/quick_start.html).
 
-## Set up a Derby Database in IntelliJ IDEA
+# Set up a Derby Database in IntelliJ IDEA
 
 1. In the main menu, go to **View** > **Tool Windows** > **Database**.
 2. In the **Database** tool window, click the **+** icon and select **Data Source** > **Derby**.
@@ -68,7 +72,7 @@ Finally, test the connection:
 1. Download **Derby JDBC Driver** [here](https://dbschema.com/jdbc-driver/Derby.html).
 2. Once the downloaded is completed, extract all the files inside the **lib** folder of Apache Tomcat.
 
-## Quick start
+# Quick start
 
 Here are some examples on how to use Apache Derby in Java.
 ```java
